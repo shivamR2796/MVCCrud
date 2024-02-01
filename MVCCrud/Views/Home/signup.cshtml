@@ -1,0 +1,49 @@
+﻿@model MVCCrud.Models.LoginModel
+@{
+    ViewBag.Title = "signup";
+}
+<style>
+    .form-container {
+        width: 600px;
+        margin: 0 auto;
+        padding: 50px;
+        background-color: lightgreen;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        color: #fff;
+    }
+</style>
+
+
+
+<div class="container">
+    <div class="form-container" id="login-form">
+        <h1>SignUp</h1>
+        @using (Html.BeginForm("signup", "Home", FormMethod.Post))
+        {
+            <div class="form-group">
+                @Html.LabelFor(a => a.Name, new { @value = "Name" })
+                @Html.TextBoxFor(a => a.Name, new { @class = "form-control", @placeholder = "Name" })
+                @Html.ValidationMessageFor(a => a.Name, "", new { @class = "error" })
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(a => a.Email, new { @value = "Email" })
+                @Html.TextBoxFor(a => a.Email, new { @class = "form-control", type = "email", @placeholder = "example@gmail.com" })
+                @Html.ValidationMessageFor(a => a.Email, "", new { @class = "error" })
+            </div>
+            <br />
+            <div class="form-group">
+                @Html.LabelFor(a => a.Password, new { @value = "Password" })
+                @Html.TextBoxFor(a => a.Password, new { @class = "form-control", type = "Password" })
+                @Html.ValidationMessageFor(a => a.Password, "", new { @class = "error" })
+            </div>
+            <br />
+            <button class="btn btn-success" type="submit">Signup</button>
+        }
+
+
+    <p>Already have an account? <Button class="btn btn-outline-success">@Html.ActionLink("Login", "Login", "Login")</Button></p>
+    </div>
+
+
+</div>

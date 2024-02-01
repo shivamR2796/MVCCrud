@@ -1,0 +1,32 @@
+﻿@model MVCCrud.Models.EmpModel
+@{
+    ViewBag.Title = "AddDetails";
+}
+
+<h2>AddDetails</h2>
+
+@using (Html.BeginForm("AddDetails", "Home", FormMethod.Post))
+{
+    <div class="form-group">
+        @Html.HiddenFor(a => a.EMP_ID)
+        @Html.LabelFor(a => a.EMP_NAME, new { @value = "Name" })
+        @Html.TextBoxFor(a => a.EMP_NAME, new { @class = "form-control", @placeholder = "Name" })
+        @Html.ValidationMessageFor(a => a.EMP_NAME, "", new { @class = "error" })
+    </div>
+    <br />
+    <div class="form-group">
+        @Html.LabelFor(a => a.AGE, new { @value = "Age" })
+        @Html.TextBoxFor(a => a.AGE, new { @class = "form-control", @placeholder = "Age" })
+        @Html.ValidationMessageFor(a => a.AGE, "", new { @class = "error" })
+    </div>
+    <br />
+    <div class="form-group">
+        @Html.LabelFor(a => a.CITY, new { @value = "City" })
+        @Html.TextBoxFor(a => a.CITY, new { @class = "form-control", @placeholder = "City" })
+        @Html.ValidationMessageFor(a => a.CITY, "", new { @class = "error" })
+    </div>
+    <br />
+    <button class="btn btn-success" type="submit">@ViewBag.msg Details</button>
+    <button class="btn btn-warning" type="reset">Re-Set</button>
+}
+
